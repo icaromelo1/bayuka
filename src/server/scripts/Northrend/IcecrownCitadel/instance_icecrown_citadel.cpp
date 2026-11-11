@@ -371,7 +371,7 @@ public:
             {
                 SpellAreaForAreaMapBounds saBounds = sSpellMgr->GetSpellAreaForAreaMapBounds(4812);
                 for (SpellAreaForAreaMap::const_iterator itr = saBounds.first; itr != saBounds.second; ++itr)
-                    if ((itr->second->raceMask & player->getRaceMask()) && !player->HasAura(itr->second->spellId))
+                    if ((itr->second->raceMask & player->GetFactionRaceMask()) && !player->HasAura(itr->second->spellId))
                     {
                         if (SpellInfo const* si = sSpellMgr->GetSpellInfo(itr->second->spellId))
                         {
@@ -393,7 +393,7 @@ public:
                     {
                         SpellAreaForAreaMapBounds saBounds = sSpellMgr->GetSpellAreaForAreaMapBounds(4812);
                         for (SpellAreaForAreaMap::const_iterator itr = saBounds.first; itr != saBounds.second; ++itr)
-                            if ((itr->second->raceMask & plr->getRaceMask()) && !creature->HasAura(itr->second->spellId))
+                            if ((itr->second->raceMask & plr->GetFactionRaceMask()) && !creature->HasAura(itr->second->spellId))
                                 if (SpellInfo const* si = sSpellMgr->GetSpellInfo(itr->second->spellId))
                                     if (si->HasAura(SPELL_AURA_MOD_INCREASE_HEALTH_PERCENT))
                                         creature->AddAura(itr->second->spellId, creature);

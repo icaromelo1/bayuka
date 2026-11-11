@@ -1078,7 +1078,7 @@ bool SpellArea::IsFitToRequirements(Player const* player, uint32 newZone, uint32
             return false;
 
     if (raceMask)                                // not in expected race
-        if (!player || !(raceMask & player->getRaceMask()))
+        if (!player || !(raceMask & player->GetFactionRaceMask()))
             return false;
 
     if (areaId)                                  // not in expected zone

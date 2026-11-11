@@ -95,6 +95,8 @@ public:                                                 // accessors
     int32 GetReputation(uint32 faction_id) const;
     int32 GetReputation(FactionEntry const* factionEntry) const;
     int32 GetBaseReputation(FactionEntry const* factionEntry) const;
+    int32 GetBaseReputationForRaceMask(FactionEntry const* factionEntry, uint32 raceMask) const;
+    int32 GetClientStanding(FactionState const& faction) const;
 
     ReputationRank GetRank(FactionEntry const* factionEntry) const;
     ReputationRank GetBaseRank(FactionEntry const* factionEntry) const;
@@ -130,6 +132,7 @@ public:                                                 // modifiers
     bool SetOneFactionReputation(FactionEntry const* factionEntry, float standing, bool incremental, Optional<ReputationRank> repMaxCap = { });
 
 public:                                                 // senders
+    void ResetToBase() { Initialize(); }
     void SendInitialReputations();
     void SendForceReactions();
     void SendState(FactionState const* faction);

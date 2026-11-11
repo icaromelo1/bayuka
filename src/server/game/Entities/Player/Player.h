@@ -1158,7 +1158,7 @@ public:
     PlayerSocial* GetSocial() { return m_social; }
 
     PlayerTaxi m_taxi;
-    void InitTaxiNodesForLevel() { m_taxi.InitTaxiNodesForLevel(getRace(), getClass(), GetLevel()); }
+    void InitTaxiNodesForLevel() { m_taxi.InitTaxiNodesForLevel(GetFactionRace(), getClass(), GetLevel()); }
     bool ActivateTaxiPathTo(std::vector<uint32> const& nodes, Creature* npc = nullptr, uint32 spellid = 1);
     bool ActivateTaxiPathTo(uint32 taxi_path_id, uint32 spellid = 1);
     void CleanupAfterTaxiFlight();
@@ -2140,6 +2140,10 @@ public:
     [[nodiscard]] TeamId GetTeamId(bool original = false) const { return original ? TeamIdForRace(getRace(true)) : m_team; };
     void SetFactionForRace(uint8 race);
     void setTeamId(TeamId teamid) { m_team = teamid; };
+    void SetFactionProxyRace(uint8 race) { m_factionProxyRace = race; }
+    [[nodiscard]] uint8 GetFactionProxyRace() const { return m_factionProxyRace; }
+    [[nodiscard]] uint8 GetFactionRace() const { return m_factionProxyRace ? m_factionProxyRace : getRace(true); }
+    [[nodiscard]] uint32 GetFactionRaceMask() const { return 1 << (GetFactionRace() - 1); }
 
     void InitDisplayIds();
 
@@ -2840,6 +2844,7 @@ protected:
     ObjectGuid m_lootGuid;
 
     TeamId m_team;
+    uint8 m_factionProxyRace;
     uint32 m_nextSave; // pussywizard
     uint16 m_additionalSaveTimer; // pussywizard
     uint8 m_additionalSaveMask; // pussywizard

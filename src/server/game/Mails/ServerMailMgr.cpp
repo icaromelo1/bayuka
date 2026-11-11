@@ -360,7 +360,7 @@ bool ServerMailCondition::CheckCondition(Player* player) const
     case ServerMailConditionType::Faction:
         return player->GetTeamId() == value;
     case ServerMailConditionType::Race:
-        return (player->getRaceMask() & value) != 0;
+        return (player->GetFactionRaceMask() & value) != 0;
     case ServerMailConditionType::Class:
         return (player->getClassMask() & value) != 0;
     case ServerMailConditionType::AccountFlags:

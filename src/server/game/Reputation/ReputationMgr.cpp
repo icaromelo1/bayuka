@@ -90,10 +90,23 @@ int32 ReputationMgr::GetReputation(uint32 faction_id) const
 
 int32 ReputationMgr::GetBaseReputation(FactionEntry const* factionEntry) const
 {
+    return GetBaseReputationForRaceMask(factionEntry, _player->GetFactionRaceMask());
+}
+
+int32 ReputationMgr::GetClientStanding(FactionState const& faction) const
+{
+    if (!_player->GetFactionProxyRace())
+        return faction.Standing;
+
+    FactionEntry const* factionEntry = sFactionStore.LookupEntry(faction.ID);
+    return faction.Standing + GetBaseReputation(factionEntry) - GetBaseReputationForRaceMask(factionEntry, _player->getRaceMask());
+}
+
+int32 ReputationMgr::GetBaseReputationForRaceMask(FactionEntry const* factionEntry, uint32 raceMask) const
+{
     if (!factionEntry)
         return 0;
 
-    uint32 raceMask = _player->getRaceMask();
     uint32 classMask = _player->getClassMask();
     for (int i = 0; i < 4; i++)
     {
@@ -147,7 +160,7 @@ uint32 ReputationMgr::GetDefaultStateFlags(FactionEntry const* factionEntry) con
     if (!factionEntry)
         return 0;
 
-    uint32 raceMask = _player->getRaceMask();
+    uint32 raceMask = _player->GetFactionRaceMask();
     uint32 classMask = _player->getClassMask();
     for (int i = 0; i < 4; i++)
     {
@@ -188,7 +201,7 @@ void ReputationMgr::SendState(FactionState const* faction)
     data << uint32(count);
 
     data << uint32(faction->ReputationListID);
-    data << uint32(faction->Standing);
+    data << uint32(GetClientStanding(*faction));
 
     for (FactionStateList::iterator itr = _factions.begin(); itr != _factions.end(); ++itr)
     {
@@ -198,7 +211,7 @@ void ReputationMgr::SendState(FactionState const* faction)
             if (itr->second.ReputationListID != faction->ReputationListID)
             {
                 data << uint32(itr->second.ReputationListID);
-                data << uint32(itr->second.Standing);
+                data << uint32(GetClientStanding(itr->second));
                 ++count;
             }
         }
@@ -226,7 +239,7 @@ void ReputationMgr::SendInitialReputations()
 
         // fill in encountered data
         data << uint8  (itr->second.Flags);
-        data << uint32 (itr->second.Standing);
+        data << uint32 (GetClientStanding(itr->second));
 
         itr->second.needSend = false;
 
@@ -465,7 +478,7 @@ void ReputationMgr::SetVisible(FactionTemplateEntry const* factionTemplateEntry)
 
     if (FactionEntry const* factionEntry = sFactionStore.LookupEntry(factionTemplateEntry->faction))
         // Never show factions of the opposing team
-        if (!(factionEntry->BaseRepRaceMask[1] & _player->getRaceMask() && factionEntry->BaseRepValue[1] == Reputation_Bottom))
+        if (!(factionEntry->BaseRepRaceMask[1] & _player->GetFactionRaceMask() && factionEntry->BaseRepValue[1] == Reputation_Bottom))
             SetVisible(factionEntry);
 }
 

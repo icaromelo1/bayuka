@@ -195,6 +195,7 @@ Player::Player(WorldSession* session): Unit(), m_mover(this), _cinematicMgr(*thi
 
     m_areaUpdateId = 0;
     m_team = TEAM_NEUTRAL;
+    m_factionProxyRace = 0;
 
     m_needZoneUpdate = false;
 
@@ -2556,7 +2557,7 @@ void Player::GiveLevel(uint8 level)
     if (Pet* pet = GetPet())
         pet->SynchronizeLevelWithOwner();
 
-    MailLevelReward const* mailReward = sObjectMgr->GetMailLevelReward(level, getRaceMask());
+    MailLevelReward const* mailReward = sObjectMgr->GetMailLevelReward(level, GetFactionRaceMask());
     if (mailReward && sScriptMgr->OnPlayerCanGiveMailRewardAtGiveLevel(this, level))
     {
         //- TODO: Poor design of mail system

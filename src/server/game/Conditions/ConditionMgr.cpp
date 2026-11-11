@@ -137,7 +137,9 @@ bool Condition::Meets(ConditionSourceInfo& sourceInfo)
     }
     case CONDITION_RACE:
     {
-        if (Unit* unit = object->ToUnit())
+        if (Player* player = object->ToPlayer())
+            condMeets = (player->getRaceMask() | player->GetFactionRaceMask()) & ConditionValue1;
+        else if (Unit* unit = object->ToUnit())
             condMeets = unit->getRaceMask() & ConditionValue1;
         break;
     }

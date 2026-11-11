@@ -1145,7 +1145,7 @@ bool Player::SatisfyQuestRace(Quest const* qInfo, bool msg) const
     uint32 reqraces = qInfo->GetAllowableRaces();
     if (reqraces == 0)
         return true;
-    if ((reqraces & getRaceMask()) == 0)
+    if ((reqraces & GetFactionRaceMask()) == 0)
     {
         if (msg)
             SendCanTakeQuestResponse(INVALIDREASON_QUEST_FAILED_WRONG_RACE);
