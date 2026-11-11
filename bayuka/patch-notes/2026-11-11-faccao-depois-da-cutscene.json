@@ -1,0 +1,13 @@
+{
+  "title": "Escolha de facção depois da cutscene",
+  "date": "2026-11-11",
+  "groups": [
+    {
+      "title": "Criação de personagem",
+      "items": [
+        "A pergunta de facção dos Humanos agora aparece quando a cutscene de abertura termina, assistida até o fim ou pulada. Antes ela chegava no meio da cutscene e sumia ao pular.",
+        "Se a janela fechar sem escolha, digite .faccao menu no chat enquanto o personagem estiver no nível 1."
+      ]
+    }
+  ]
+}
