@@ -2395,6 +2395,7 @@ public:
 
     [[nodiscard]] bool canFlyInZone(uint32 mapid, uint32 zone, SpellInfo const* bySpell);
     [[nodiscard]] bool CanFlyInOpenWorld() const;
+    [[nodiscard]] static bool ZonaSemVoo(uint32 zoneId);
 
     void SetClientControl(Unit* target, bool allowMove, bool packetOnly = false);
 

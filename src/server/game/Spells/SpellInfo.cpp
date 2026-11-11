@@ -1554,6 +1554,7 @@ SpellCastResult SpellInfo::CheckLocation(uint32 map_id, uint32 zone_id, uint32 a
         bool const canFlyInOpenWorld = player->CanFlyInOpenWorld();
         if (!areaEntry || (!areaEntry->IsFlyable() && !canFlyInOpenWorld) ||
             (strict && (areaEntry->flags & AREA_FLAG_NO_FLY_ZONE) != 0 && !canFlyInOpenWorld) ||
+            (strict && Player::ZonaSemVoo(zone_id)) ||
             !player->canFlyInZone(map_id, zone_id, this))
         {
             return SPELL_FAILED_INCORRECT_AREA;

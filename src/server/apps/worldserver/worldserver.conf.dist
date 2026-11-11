@@ -1394,6 +1394,14 @@ vmap.enableIndoorCheck = 1
 
 AllowFlightInOpenWorld = 1
 
+#    ZonasSemVoo
+#        Zone ids where flying is not allowed even with AllowFlightInOpenWorld. Entering one while
+#        flying applies Restricted Flight Area (58600): warning, dismount after 10 s and parachute.
+#        Each zone also needs a spell_area row for spell 58600.
+#        Default: "1497 1519 1537 1637 1638 1657 3487 3557" (capital cities)
+
+ZonasSemVoo = "1497 1519 1537 1637 1638 1657 3487 3557"
+
 #
 #    DetectPosCollision
 #        Description: Check final move position, summon position, etc for visible collision with

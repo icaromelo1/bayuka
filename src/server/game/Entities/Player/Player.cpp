@@ -13995,6 +13995,15 @@ bool Player::CanFlyInOpenWorld() const
            !map->IsBattlegroundOrArena();
 }
 
+bool Player::ZonaSemVoo(uint32 zoneId)
+{
+    for (std::string_view zona : Acore::Tokenize(sWorld->getStringConfig(CONFIG_ZONAS_SEM_VOO), ' ', false))
+        if (Acore::StringTo<uint32>(zona) == zoneId)
+            return true;
+
+    return false;
+}
+
 bool Player::canFlyInZone(uint32 mapid, uint32 zone, SpellInfo const* bySpell)
 {
     if (!sScriptMgr->OnPlayerCanFlyInZone(this, mapid,zone,bySpell))

@@ -631,6 +631,7 @@ void WorldConfig::BuildConfigCache()
     SetConfigValue<bool>(CONFIG_ENABLE_CONTINENT_TRANSPORT, "IsContinentTransport.Enabled", true);
     SetConfigValue<bool>(CONFIG_ENABLE_CONTINENT_TRANSPORT_PRELOADING, "IsPreloadedContinentTransport.Enabled", false);
     SetConfigValue<bool>(CONFIG_ALLOW_FLIGHT_IN_OPEN_WORLD, "AllowFlightInOpenWorld", true);
+    SetConfigValue<std::string>(CONFIG_ZONAS_SEM_VOO, "ZonasSemVoo", "1497 1519 1537 1637 1638 1657 3487 3557");
 
     SetConfigValue<bool>(CONFIG_IP_BASED_ACTION_LOGGING, "Allow.IP.Based.Action.Logging", false);
 
