@@ -1,0 +1,10 @@
+[submodule "modules/mod-playerbots"]
+	path = modules/mod-playerbots
+	url = https://github.com/mod-playerbots/mod-playerbots.git
+[submodule "modules/mod-transmog"]
+	path = modules/mod-transmog
+	url = https://github.com/azerothcore/mod-transmog.git
+[submodule "modules/mod-uac"]
+	path = modules/mod-uac
+	url = https://github.com/icaroMelo1/mod-uac.git
+	branch = bayuka
