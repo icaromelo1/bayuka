@@ -27,6 +27,7 @@ constexpr uint32 ACAO_FICAR_NATIVA = 1;
 constexpr uint32 ACAO_TROCAR_FACCAO = 2;
 constexpr uint32 SPELL_IDIOMA_ORCISH = 669;
 constexpr uint32 SPELL_IDIOMA_COMMON = 668;
+constexpr uint32 ESPERA_MAXIMA_CINEMATICA = 180;
 
 struct Configuracao
 {
@@ -198,6 +199,25 @@ bool PodeEscolherSozinho(Player const* player)
     return Elegivel(player) && player->GetLevel() <= config.nivelMaximoEscolha;
 }
 
+void MostrarMenuDepoisDaCinematica(Player* player, uint32 segundos)
+{
+    player->m_Events.AddEventAtOffset([player, segundos]()
+    {
+        if (!player->IsInWorld() || !PodeEscolherSozinho(player))
+            return;
+        if (player->GetCinematicMgr().GetActiveCinematicCamera() && segundos < ESPERA_MAXIMA_CINEMATICA)
+        {
+            MostrarMenuDepoisDaCinematica(player, segundos + 1);
+            return;
+        }
+        player->m_Events.AddEventAtOffset([player]()
+        {
+            if (player->IsInWorld() && PodeEscolherSozinho(player))
+                MostrarMenu(player);
+        }, 2s);
+    }, 1s);
+}
+
 class FaccaoPersonagemWorld : public WorldScript
 {
 public:
@@ -267,11 +287,7 @@ public:
     {
         if (!config.escolhaNoPrimeiroLogin || !PodeEscolherSozinho(player))
             return;
-        player->m_Events.AddEventAtOffset([player]()
-        {
-            if (player->IsInWorld() && PodeEscolherSozinho(player))
-                MostrarMenu(player);
-        }, 5s);
+        MostrarMenuDepoisDaCinematica(player, 0);
     }
 
     void OnPlayerGossipSelect(Player* player, uint32 menuId, uint32 /*sender*/, uint32 acao) override
