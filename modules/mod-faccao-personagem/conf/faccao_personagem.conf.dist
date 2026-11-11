@@ -1,0 +1,41 @@
+[worldserver]
+
+#    FaccaoPersonagem.Ativo
+#        Liga a escolha de faccao por personagem.
+#        Padrao: 1
+FaccaoPersonagem.Ativo = 1
+
+#    FaccaoPersonagem.RacasPermitidas
+#        IDs de raca (separados por virgula) que podem jogar pela outra faccao.
+#        1 = Humano. Vazio = todas as racas.
+#        Padrao: "1"
+FaccaoPersonagem.RacasPermitidas = "1"
+
+#    FaccaoPersonagem.ClassesBloqueadas
+#        IDs de classe que nunca trocam de faccao. 6 = Cavaleiro da Morte
+#        (a corrente inicial de Acherus termina numa capital fixa).
+#        Padrao: "6"
+FaccaoPersonagem.ClassesBloqueadas = "6"
+
+#    FaccaoPersonagem.EscolhaNoPrimeiroLogin
+#        Mostra o menu de escolha no primeiro login de personagem elegivel.
+#        Padrao: 1
+FaccaoPersonagem.EscolhaNoPrimeiroLogin = 1
+
+#    FaccaoPersonagem.NivelMaximoEscolha
+#        Nivel maximo em que o proprio jogador pode escolher pelo menu ou .faccao menu.
+#        GMs trocam qualquer nivel com .faccao definir.
+#        Padrao: 1
+FaccaoPersonagem.NivelMaximoEscolha = 1
+
+#    FaccaoPersonagem.RacaRepresentanteHorda / FaccaoPersonagem.RacaRepresentanteAlianca
+#        Raca usada para regras de faccao (missoes, reputacao inicial, itens, voos,
+#        cidade inicial). A aparencia e os raciais continuam os da raca real.
+#        Padrao: 2 (Orc) e 1 (Humano)
+FaccaoPersonagem.RacaRepresentanteHorda = 2
+FaccaoPersonagem.RacaRepresentanteAlianca = 1
+
+#    FaccaoPersonagem.ConverterIdioma
+#        Fala em Comum vira Orc (e o inverso) para quem joga pela outra faccao.
+#        Padrao: 1
+FaccaoPersonagem.ConverterIdioma = 1

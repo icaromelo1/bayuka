@@ -1,0 +1,9 @@
+#
+# mod-flying-mount-speed configuration
+#
+
+# Minimum movement bonus for all flying mount speed auras, in percent.
+# 310 means the aura is at least +310% over normal movement speed.
+# Default: 310
+FlyingMountSpeed.MinimumPercent = 310
+

@@ -11,6 +11,8 @@
 !/modules/CMakeLists.txt
 !/modules/*.h
 !/modules/*.cmake
+!/modules/mod-faccao-personagem/
+!/modules/mod-flying-mount-speed/
 /build*/
 /var/*
 !/var/build/.gitkeep
