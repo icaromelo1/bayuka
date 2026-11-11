@@ -1,0 +1,21 @@
+{
+  "title": "Bayuka Lich King",
+  "date": "2026-11-08",
+  "groups": [
+    {
+      "title": "Novo reino",
+      "items": [
+        "O Bayuka passa para Wrath of the Lich King (3.3.5a, build 12340). A versão 1.12 foi desligada.",
+        "Todo o conteúdo liberado: Terralém, Nortúndria, nível máximo 80 e Cavaleiros da Morte.",
+        "As contas da versão 1.12 não foram migradas: crie uma conta nova pelo portal."
+      ]
+    },
+    {
+      "title": "Bots",
+      "items": [
+        "80 bots da Aliança e da Horda andam pelo mundo, do nível 1 ao 80.",
+        "Qualquer jogador pode convidar bots para o grupo; eles seguem disponíveis quando o líder sai."
+      ]
+    }
+  ]
+}

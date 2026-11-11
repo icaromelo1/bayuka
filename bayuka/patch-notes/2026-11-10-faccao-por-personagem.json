@@ -1,0 +1,14 @@
+{
+  "title": "Facção por personagem",
+  "date": "2026-11-10",
+  "groups": [
+    {
+      "title": "Personagens",
+      "items": [
+        "Humanos podem jogar pela Horda: ao criar o personagem, um menu no primeiro login pergunta a facção. A raça continua a mesma; missões, reputações, leilão, correio e voos seguem a facção escolhida.",
+        "A escolha é feita no nível 1. Para trocar depois, fale com um GM.",
+        "Cavaleiros da Morte continuam na facção da própria raça."
+      ]
+    }
+  ]
+}

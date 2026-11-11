@@ -1,0 +1,21 @@
+{
+  "title": "Instalador e reinícios avisados",
+  "date": "2026-11-10",
+  "groups": [
+    {
+      "title": "Instalação",
+      "items": [
+        "Instalador para Windows: baixa o jogo completo (cerca de 17 GB), continua de onde parou se a conexão cair, configura o endereço do reino e cria o atalho.",
+        "Quem já tem o cliente 3.3.5a pode apontar a pasta existente; o instalador confere a versão e aplica só os arquivos do Bayuka.",
+        "Launcher para Windows e Mac, que se atualiza sozinho sem baixar o jogo de novo."
+      ]
+    },
+    {
+      "title": "Servidor",
+      "items": [
+        "Reinícios do servidor agora têm contagem regressiva no chat e no centro da tela, e o progresso de todos é salvo antes de desligar.",
+        "Esta aba de Patch Notes passa a registrar cada atualização do reino."
+      ]
+    }
+  ]
+}
