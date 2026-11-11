@@ -1,0 +1,21 @@
+name: Sugestão
+description: Uma ideia de mudança ou novidade para o Bayuka.
+labels: ["sugestão"]
+body:
+  - type: textarea
+    id: ideia
+    attributes:
+      label: A ideia
+      description: O que mudaria para quem joga.
+    validations:
+      required: true
+  - type: textarea
+    id: motivo
+    attributes:
+      label: Por quê
+      description: Que problema resolve ou o que deixa mais divertido.
+  - type: textarea
+    id: como
+    attributes:
+      label: Como poderia ser feito
+      description: Opcional. Módulo, configuração, SQL, patch de cliente.

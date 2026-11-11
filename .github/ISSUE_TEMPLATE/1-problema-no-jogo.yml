@@ -1,0 +1,37 @@
+name: Problema no jogo
+description: Algo no Bayuka não funciona como deveria.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: atual
+    attributes:
+      label: O que acontece
+      description: Descreva o problema. Cite NPC, item, missão ou magia pelo nome ou ID.
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: O que deveria acontecer
+    validations:
+      required: true
+  - type: textarea
+    id: passos
+    attributes:
+      label: Como reproduzir
+      description: Passo a passo, com o lugar do mapa (.gps) se der.
+      placeholder: |
+        1. Entre com um Humano da Horda em Orgrimmar
+        2. Fale com o NPC ...
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: personagem
+    attributes:
+      label: Raça, classe e nível do personagem
+  - type: textarea
+    id: extra
+    attributes:
+      label: Mais alguma coisa
+      description: Print, vídeo ou mensagem de erro ajudam.

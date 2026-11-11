@@ -1,0 +1,22 @@
+name: Servidor caiu ou desconectou
+description: O reino caiu, travou ou desconectou todo mundo.
+labels: ["queda"]
+body:
+  - type: input
+    id: quando
+    attributes:
+      label: Quando foi
+      description: Data e hora aproximadas (horário de Brasília).
+    validations:
+      required: true
+  - type: textarea
+    id: fazendo
+    attributes:
+      label: O que você estava fazendo
+      description: Lugar do mapa, o que tinha acabado de fazer, se estava em grupo com bots.
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Mais alguma coisa
