@@ -6994,7 +6994,8 @@ SpellCastResult Spell::CheckCast(bool strict, uint32* /*param1*/, uint32* /*para
                     {
                         Battlefield* Bf = sBattlefieldMgr->GetBattlefieldToZoneId(m_originalCaster->GetZoneId());
                         if (AreaTableEntry const* pArea = sAreaTableStore.LookupEntry(m_originalCaster->GetAreaId()))
-                            if ((pArea->flags & AREA_FLAG_NO_FLY_ZONE) || (Bf && !Bf->CanFlyIn()))
+                            if (((pArea->flags & AREA_FLAG_NO_FLY_ZONE) && !m_originalCaster->ToPlayer()->CanFlyInOpenWorld()) ||
+                                (Bf && !Bf->CanFlyIn()))
                                 return SPELL_FAILED_NOT_HERE;
                     }
                     break;

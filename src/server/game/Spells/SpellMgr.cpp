@@ -1106,6 +1106,8 @@ bool SpellArea::IsFitToRequirements(Player const* player, uint32 newZone, uint32
                     return false;
 
                 AreaTableEntry const* pArea = sAreaTableStore.LookupEntry(player->GetAreaId());
+                if (player->CanFlyInOpenWorld())
+                    return false;
                 if (!(pArea && pArea->flags & AREA_FLAG_NO_FLY_ZONE))
                     return false;
                 if (!player->HasIncreaseMountedFlightSpeedAura() && !player->HasFlyAura())

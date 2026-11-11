@@ -13987,6 +13987,13 @@ uint32 Player::CalculateTalentsPoints() const
     return uint32(talentPointsForLevel * sWorld->getRate(RATE_TALENT));
 }
 
+bool Player::CanFlyInOpenWorld() const
+{
+    Map const* map = GetMap();
+    return sWorld->getBoolConfig(CONFIG_ALLOW_FLIGHT_IN_OPEN_WORLD) && IsOutdoors() && map && !map->IsDungeon() &&
+           !map->IsBattlegroundOrArena();
+}
+
 bool Player::canFlyInZone(uint32 mapid, uint32 zone, SpellInfo const* bySpell)
 {
     if (!sScriptMgr->OnPlayerCanFlyInZone(this, mapid,zone,bySpell))
@@ -13996,7 +14003,8 @@ bool Player::canFlyInZone(uint32 mapid, uint32 zone, SpellInfo const* bySpell)
 
     // continent checked in SpellInfo::CheckLocation at cast and area update
     uint32 v_map = GetVirtualMapForMapAndZone(mapid, zone);
-    if (v_map == MAP_NORTHREND && !bySpell->HasAttribute(SPELL_ATTR7_IGNORES_COLD_WEATHER_FLYING_REQUIREMENT))
+    if (v_map == MAP_NORTHREND && !CanFlyInOpenWorld() &&
+        !bySpell->HasAttribute(SPELL_ATTR7_IGNORES_COLD_WEATHER_FLYING_REQUIREMENT))
     {
         if (!HasSpell(54197)) // 54197 = Cold Weather Flying
         {

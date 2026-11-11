@@ -1388,6 +1388,12 @@ vmap.BlizzlikeLOSInOpenWorld = 1
 
 vmap.enableIndoorCheck = 1
 
+#    AllowFlightInOpenWorld
+#        Allow flying mounts in outdoor world areas outside dungeons, raids, battlegrounds, and arenas.
+#        Default: 1 (Enabled)
+
+AllowFlightInOpenWorld = 1
+
 #
 #    DetectPosCollision
 #        Description: Check final move position, summon position, etc for visible collision with

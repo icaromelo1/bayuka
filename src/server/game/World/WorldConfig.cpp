@@ -630,6 +630,7 @@ void WorldConfig::BuildConfigCache()
 
     SetConfigValue<bool>(CONFIG_ENABLE_CONTINENT_TRANSPORT, "IsContinentTransport.Enabled", true);
     SetConfigValue<bool>(CONFIG_ENABLE_CONTINENT_TRANSPORT_PRELOADING, "IsPreloadedContinentTransport.Enabled", false);
+    SetConfigValue<bool>(CONFIG_ALLOW_FLIGHT_IN_OPEN_WORLD, "AllowFlightInOpenWorld", true);
 
     SetConfigValue<bool>(CONFIG_IP_BASED_ACTION_LOGGING, "Allow.IP.Based.Action.Logging", false);
 
